@@ -30,7 +30,7 @@ The sample output file is in the lout.csv file.
 https://github.com/bitkarrot/lntools/blob/main/lout.csv
 
 In the Output file you should get a list of share links which enable printing of QR codes
-Example: https://lnbits.com/withdraw/dNBqnsmpaCrV5jqXxiMsp4
+Example: https://lnbits.com/withdraw/ig6JXnhLKZDaeC3VKityLP
 
 Or, you can also view all of the links auto generated with their names created on the LNURLw Admin panel:
 <img src="https://github.com/bitkarrot/lntools/blob/main/lnurlw_admin_panel.png"/>
