@@ -2,8 +2,13 @@
 
 ## Purpose
 To generate Unique LNURLw withdraw links from LNbits.com using a csv spreadsheet.
+
 For example input file format, see the laisee.csv sample. 
+https://github.com/bitkarrot/lntools/blob/main/laisee.csv
+
 The sample output file is in the lout.csv file. 
+https://github.com/bitkarrot/lntools/blob/main/lout.csv
+
 
 For the X-API-Key, it is the Invoice/Read key in your LNBits wallet. 
 
