@@ -1,7 +1,16 @@
 # lntools
 
 ## Purpose
-To generate Unique LNURLw withdraw links from LNbits.com using a csv spreadsheet.
+To generate *Unique* LNURLw withdraw links from LNbits.com using a csv spreadsheet.
+
+The spreadsheet would include the following:
+
+- **Title** : usually the name for the withdraw link, 
+- **MaxSat** : the number of satoshis that can be withdrawn from the link
+- **Uses** : The maximum number of times the link can be used. 
+
+The output would be a spreadsheet containing the Titles, *Unique* LNURLS and *Unique* Sharelinks for each withdraw link. 
+All of this output information is also visible in the lnbits admin panel. 
 
 ## Installation:
 ```
@@ -34,9 +43,7 @@ To Run the script:
 
 ```
 $ python3 uniq_lnurls.py 
-```
 
-```
 Hi - This is the Unique LNURLw generator.
 Be sure no extra spaces are entered below.
 
