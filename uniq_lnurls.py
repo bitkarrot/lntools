@@ -11,7 +11,6 @@ shareable link format example: https://lnbits.com/withdraw/hAoEFZtbrNctpL8VEPVQc
 Withdraw ID example: hAoEFZtbrNctpL8VEPVQcD
 '''
 
-#x_api_key = "08f44a4395ee4bf1910960587db30a21"
 x_api_key = ""
 lnbase = "https://lnbits.com/withdraw"
 lnurlw =  lnbase + "/api/v1/links"
