@@ -3,6 +3,16 @@
 ## Purpose
 To generate Unique LNURLw withdraw links from LNbits.com using a csv spreadsheet.
 
+## Installation:
+```
+$ git clone https://github.com/bitkarrot/lntools.git
+$ python3 -m venv env
+$ source env/bin/activate
+$ pip install -r requirements.txt
+```
+
+# How to Use
+
 For example input file format, see the laisee.csv sample. 
 https://github.com/bitkarrot/lntools/blob/main/laisee.csv
 
@@ -20,15 +30,10 @@ For the X-API-Key, it is the Admin key in your LNBits wallet.
 To Find the Admin Key, look for it in the API panel: 
 <img src="https://github.com/bitkarrot/lntools/blob/main/wallet_panel.png"/>
 
-
-## Installation:
 ```
-$ git clone https://github.com/bitkarrot/lntools.git
-$ python3 -m venv env
-$ source env/bin/activate
-$ pip install -r requirements.txt
-
 To Run the script: 
 
 $ python3 uniq_lnurls.py 
 ```
+
+
