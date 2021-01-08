@@ -12,7 +12,8 @@ Withdraw ID example: hAoEFZtbrNctpL8VEPVQcD
 '''
 
 x_api_key = ""
-lnbase = "https://lnbits.com/withdraw"
+lnhost = "bits.bitcoin.org.hk"
+lnbase = "https://" + lnhost + "/withdraw"
 lnurlw =  lnbase + "/api/v1/links"
 
 ##################################
