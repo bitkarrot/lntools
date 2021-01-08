@@ -1,7 +1,8 @@
 # lntools
 
 ## Purpose
-To generate *Unique* LNURLw withdraw links from LNbits.com using a csv spreadsheet.
+To generate *Unique* LNURLw withdraw links in bulk from LNbits.com using a csv spreadsheet.
+The Current LNURLw extension does not allow for creation of unique links in bulk, so this script addresses this feature.
 
 The spreadsheet would include the following:
 
