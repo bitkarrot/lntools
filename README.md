@@ -23,5 +23,8 @@ $ git clone https://github.com/bitkarrot/lntools.git
 $ python3 -m venv env
 $ source env/bin/activate
 $ pip install -r requirements.txt
+
+To Run the script: 
+
 $ python3 uniq_lnurls.py 
 ```
