@@ -30,10 +30,29 @@ For the X-API-Key, it is the Admin key in your LNBits wallet.
 To Find the Admin Key, look for it in the API panel: 
 <img src="https://github.com/bitkarrot/lntools/blob/main/wallet_panel.png"/>
 
-```
 To Run the script: 
 
+```
 $ python3 uniq_lnurls.py 
+```
+
+```
+Hi - This is the Unique LNURLw generator.
+Be sure no extra spaces are entered below.
+
+Please Enter your x-api-key: 08f44a___________b30a21
+Enter your .CSV file name: laisee.csv
+Enter your Output file name: out.csv
+Okay, Processing.........
+Column names are title, maxsat, uses
+	 Title: John Smith,  Max Satoshis: 10000, Number Uses:  1
+	 ==== creating link ====
+	 Title: Erica Meyers,  Max Satoshis: 15000, Number Uses:  1
+	 ==== creating link ====
+	 Title: Leo W,  Max Satoshis: 20000, Number Uses:  1
+	 ==== creating link ====
+Processed 4 lines.
+ >>>>>>>>> Finished writing out to out.csv
 ```
 
 
