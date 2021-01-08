@@ -11,7 +11,7 @@ $ source env/bin/activate
 $ pip install -r requirements.txt
 ```
 
-# How to Use
+## How to Use
 
 For example input file format, see the laisee.csv sample. 
 https://github.com/bitkarrot/lntools/blob/main/laisee.csv
