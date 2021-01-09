@@ -12,7 +12,7 @@ Withdraw ID example: hAoEFZtbrNctpL8VEPVQcD
 '''
 
 x_api_key = ""
-lnhost = "bits.bitcoin.org.hk"
+lnhost = "lnbits.com"
 lnbase = "https://" + lnhost + "/withdraw"
 lnurlw =  lnbase + "/api/v1/links"
 
@@ -23,6 +23,7 @@ min_with = 5000
 max_with = 5000
 uses = 1
 wait_time = 1
+
 
 params = {"title": title,
           "min_withdrawable": min_with,
@@ -71,7 +72,7 @@ def create_link(params, headers):
 
 def write_csv(filename, data):
     fieldnames = ['title', 'sats', 'sharelink', 'lnurl']
-    with open(filename, mode='w') as csv_file:
+    with open('csv/'+filename, mode='w') as csv_file:
         csv_writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
         csv_writer.writeheader()
         for row in data:
@@ -81,7 +82,7 @@ def write_csv(filename, data):
 def process_csv(infile, headers):
     try:
         output_links = []
-        with open(infile, mode='r') as csv_file:
+        with open('csv/'+infile, mode='r') as csv_file:
             csv_reader = csv.DictReader(csv_file)
             line_count = 0
             for row in csv_reader:
@@ -135,8 +136,8 @@ def unit_tests():
     lnurl = rdata['lnurl']
     print(f"LNURLw = {lnurl}")
 
-    infile = './laisee.csv'
-    outfile = './laisee_out.csv'
+    infile = './csv/laisee.csv'
+    outfile = './csv/laisee_out.csv'
     data = process_csv(infile, headers)
     write_csv(outfile, data)
 
@@ -144,10 +145,14 @@ def unit_tests():
 
 if __name__ == "__main__":
 
-    x_api_key = input('Hi - This is the Unique LNURLw generator. \nBe sure no extra spaces are entered below. \n\nPlease Enter your x-api-key: ')
+    lnhost = input('Hi - This is the Unique LNURLw generator. \nBe sure no extra spaces are entered below. \nPlease enter your LNbits host (e.g. lnbits.com): ')
+    lnbase = "https://" + lnhost + "/withdraw"
+    lnurlw =  lnbase + "/api/v1/links"
 
-    infile = input('Enter your .CSV file name: ')
-    outfile = input('Enter your Output file name: ')
+    x_api_key = input('Please Enter your x-api-key: ')
+
+    infile = input('Enter your .csv file name: ')
+    outfile = input('Enter your output file name: ')
     headers = {"X-Api-Key" : x_api_key,
                "Content-type" : "application/json"}
 
