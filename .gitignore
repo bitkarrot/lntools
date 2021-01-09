@@ -130,3 +130,5 @@ dmypy.json
 
 #CSV files
 /csv
+!/csv/laisee.csv
+!/csv/lout.csv
