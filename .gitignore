@@ -129,6 +129,7 @@ dmypy.json
 .pyre/
 
 #CSV files
-/csv
-!/csv/laisee.csv
-!/csv/lout.csv
+!csv/
+csv/*
+!csv/laisee.csv
+!csv/lout.csv
