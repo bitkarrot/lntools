@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+#CSV files
+!csv/
+csv/*
+!csv/laisee.csv
+!csv/lout.csv
