@@ -13,65 +13,62 @@ Withdraw ID example: hAoEFZtbrNctpL8VEPVQcD
 
 x_api_key = ""
 lnhost = "lnbits.com"
-lnbase = "https://" + lnhost + "/withdraw"
-lnurlw =  lnbase + "/api/v1/links"
+lnbase = "https://" + lnhost + "/laisee"
+lnurl =  lnbase + "/api/v1/laisees"
 
 ##################################
 # default variables
-title = "testurl1"
-min_with = 5000
-max_with = 5000
-uses = 1
-wait_time = 1
+title = "My first Laisee"
+min_sats = 10
+max_sats = 10000
+allow_comment = True
 
 
 params = {"title": title,
-          "min_withdrawable": min_with,
-          "max_withdrawable": max_with,
-          "uses": uses,
-          "wait_time": wait_time,
-          "is_unique": False}
+          "min_sats": min_sats,
+          "max_sats": max_sats,
+          "allow_comment": allow_comment}
 
 headers = {"X-Api-Key" : x_api_key,
            "Content-type" : "application/json"}
 
 
 # list withdraw links
-def list_link_data(headers):
-    res = requests.get(lnurlw, headers=headers)
-    datum = res.json()
-    for i in datum:
-        print(i['id'])
+#def list_link_data(headers):
+#    res = requests.get(lnurlw, headers=headers)
+#    datum = res.json()
+#    for i in datum:
+#        print(i['id'])
 
-# get withdraw link
-def get_link(id, headers):
-    res = requests.get(lnurlw+"/"+id, headers=headers)
-    link_data = res.json()
-    lnurl = link_data['lnurl']
-    print(link_data)
-    print(lnurl)
-    return lnurl
+# get laisee
+#def get_laisee(id, headers):
+#    res = requests.get(lnurlw+"/"+id, headers=headers)
+#    link_data = res.json()
+#    lnurl = link_data['lnurl']
+#    print(link_data)
+#    print(lnurl)
+#    return lnurl
 
 # delete a link
-def del_link(id, headers):
-    print(f"deleteing id: {id}")
-    res = requests.delete(lnurlw+"/"+id, headers=headers)
-    return res.text
+#def del_link(id, headers):
+#    print(f"deleteing id: {id}")
+#    res = requests.delete(lnurlw+"/"+id, headers=headers)
+#    return res.text
 
 # create a new link
-def create_link(params, headers):
+def create_laisee(params, headers):
     try:
-        res = requests.post(lnurlw, data=params, headers=headers)
+        res = requests.post(lnurl, data=params, headers=headers)
         print("\t ==== creating link ====")
         rdata = res.json()
         return rdata
     except Exception as e:
-        print("Exception thrown while trying to create link" + e)
+        print("Exception thrown while trying to create laisee" + e)
         return
 
 
 def write_csv(filename, data):
-    fieldnames = ['title', 'sats', 'sharelink', 'lnurl']
+    fieldnames = ['title', 'minsat', 'maxsat', 'comment', 'id', 'lnurl']
     with open('csv/'+filename, mode='w') as csv_file:
         csv_writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
         csv_writer.writeheader()
@@ -90,24 +87,24 @@ def process_csv(infile, headers):
                     print(f'Column names are {", ".join(row)}')
                     line_count += 1
                 title = row["title"]
+                minsat = row["minsat"]
                 maxsat = row["maxsat"]
-                uses = row["uses"]
-                print(f'\t Title: {title},  Max Satoshis: {maxsat}, Number Uses: {uses}')
+                allow_comment = row["comment"]
+                print(f'\t Title: {title},  Min/max satoshis: {minsat}-{maxsat}, Comment: {allow_comment}')
                 params = {"title": title,
-                        "min_withdrawable": int(maxsat),
-                        "max_withdrawable": int(maxsat),
-                        "uses": int(uses),
-                        "wait_time": wait_time,
-                        "is_unique": True}
+                        "min_sats": int(minsat),
+                        "max_sats": int(maxsat),
+                        "allow_comment": allow_comment}
                 sparams = json.dumps(params)
-                rdata = create_link(sparams, headers)
+                rdata = create_laisee(sparams, headers)
                 lnurl = rdata['lnurl']
                 lnid = rdata['id']
-                share_link = lnbase + "/" + lnid
                 outdata = {}
                 outdata['title'] = title
-                outdata['sats'] = maxsat
-                outdata['sharelink'] = share_link
+                outdata['minsat'] = minsat
+                outdata['maxsat'] = maxsat
+                outdata['comment'] = allow_comment
+                outdata['id'] = lnid
                 outdata['lnurl'] = lnurl
                 output_links.append(outdata)
                 line_count += 1
@@ -145,9 +142,9 @@ def unit_tests():
 
 if __name__ == "__main__":
 
-    lnhost = input('Hi - This is the Unique LNURLw generator. \nBe sure no extra spaces are entered below. \nPlease enter your LNbits host (e.g. lnbits.com): ')
-    lnbase = "https://" + lnhost + "/withdraw"
-    lnurlw =  lnbase + "/api/v1/links"
+    lnhost = input('Hi - This is the Laisee generator. \nBe sure no extra spaces are entered below. \nPlease enter your LNbits host (e.g. lnbits.com): ')
+    lnbase = "https://" + lnhost + "/laisee"
+    lnurl =  lnbase + "/api/v1/laisees"
 
     x_api_key = input('Please Enter your x-api-key: ')
 
